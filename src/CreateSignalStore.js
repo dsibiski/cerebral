@@ -13,6 +13,11 @@ module.exports = function (signalMethods, options) {
   var signals = utils.hasLocalStorage() && localStorage.getItem('cerebral_signals') ?
     JSON.parse(localStorage.getItem('cerebral_signals')) : [];
 
+  GLOBAL.process = {
+      env: {
+          NODE_ENV: 'development'
+      }
+  };
 
   // Indicates if signals should be stored or replaced. Grabs from localStorage if available
   var willKeepState = (
