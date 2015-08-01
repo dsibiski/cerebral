@@ -1,6 +1,10 @@
 var utils = require('./utils.js');
 
 module.exports = function (signalStore, options) {
+  if (window.addEventListener === undefined) {
+    return;
+  }
+
   var getDetail = function () {
     return {
       props: {
